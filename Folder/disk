@@ -1,0 +1,17 @@
+import shutil
+
+# Function to check disk usage and print a warning if usage exceeds threshold
+def check_disk_usage(threshold=70):
+    # Get disk usage statistics
+    total, used, free = shutil.disk_usage("/")
+    # Calculate percentage of used space
+    percent_used = (used / total) * 100
+    
+    # Print a warning message if the usage exceeds the threshold
+    if percent_used > threshold:
+        print(f"Warning: Disk usage is at {percent_used:.2f}% which exceeds the {threshold}% threshold!")
+    else:
+        print(f"Disk usage is at {percent_used:.2f}%. All good!")
+
+# Run the function
+check_disk_usage()
